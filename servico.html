@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otoclinica - Serviços</title>
+    <link rel="stylesheet" href="estilos/styleServicos.css">
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+    <header class="container-navbar">
+        <nav class="navbar">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo.avif" alt="Otoclinica Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="convenios.html">Convênios</a></li>
+                <li><a href="servicos.html" class="active">Serviços</a></li>
+                <li><a href="otorrinos.html">Otorrinos</a></li>
+                <li><a href="particulares.html">Particulares</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO DE SERVIÇOS COM ÍCONES -->
+    <main class="servicos-container">
+        <div class="servicos-grid">
+            
+            <!-- Bloco 1: Cirurgias -->
+            <a href="cirurgias.html" class="card-servico card-cirurgias">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                <span>Cirurgias</span>
+            </a>
+
+            <!-- Bloco 2: Ouvido (Destaque) -->
+            <a href="ouvido.html" class="card-servico card-ouvido">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 10.5a5.5 5.5 0 0 1 11 0c0 2.5-2 4.5-3 6-.75 1.12-1 2-1 3.5h-2c0-1.5-.25-2.38-1-3.5-1-1.5-3-3.5-3-6z"></path>
+                    <path d="M10 20h4"></path>
+                </svg>
+                <span>Ouvido</span>
+            </a>
+
+            <!-- Bloco 3: Garganta -->
+            <a href="garganta.html" class="card-servico card-garganta">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v6m0 0a4 4 0 0 1-4 4H7a4 4 0 0 0-4 4v2h18v-2a4 4 0 0 0-4-4h-1a4 4 0 0 1-4-4z"></path>
+                    <path d="M12 14v8"></path>
+                </svg>
+                <span>Garganta</span>
+            </a>
+
+            <!-- Bloco 4: Nariz -->
+            <a href="nariz.html" class="card-servico card-nariz">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2c-3 3-4 6-4 9a4 4 0 0 0 8 0c0-3-1-6-4-9z"></path>
+                    <path d="M9 18c1.5 1 4.5 1 6 0"></path>
+                </svg>
+                <span>Nariz</span>
+            </a>
+
+            <!-- Bloco 5: Particulares (Centralizado embaixo) -->
+            <a href="particulares.html" class="card-servico card-particulares">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+                <span>Particulares</span>
+            </a>
+
+        </div>
+    </main>
+</body>
+</html>
