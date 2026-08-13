@@ -90,6 +90,62 @@ data_hora timestamptz not null,
 status varchar(20) not null default 'agendada'
 );
 
+insert into convenio (nome, status) values
+('Unimed', 'ativo'),
+('Bradesco Saúde', 'ativo'),
+('Amil', 'ativo');
+
+insert into servico (nome_procedimento, descricao, duracao, valor, status) values
+('Consulta Otorrino Geral', 'Consulta clínica de rotina e avaliação de vias aéreas superiores.', '00:30:00', 250.00, 'ativo'),
+('Lavagem Auricular', 'Procedimento de remoção de cerume em ambos os ouvidos.', '00:20:00', 120.00, 'ativo'),
+('Videonasofaringolaringoscopia', 'Exame endoscópico das cavidades nasais e laringe.', '00:40:00', 380.00, 'ativo');
+
+insert into especialidade (nome_especialidade) values
+('Otorrinolaringologia'),
+('Otologia'),
+('Rinologia');
+
+insert into endereco (estado, cidade, bairro, rua, cep, numero_casa) values
+('RN', 'Natal', 'Tirol', 'Av. Afonso Pena', '59020000', '825'),
+('RN', 'Natal', 'Petrópolis', 'Rua Mipibu', '59020250', '310'),
+('RN', 'Parnamirim', 'Nova Parnamirim', 'Av. Maria Lacerda', '59150000', '1500');
+
+insert into recepcionista (nome, email, telefone, permissoes_admin, senha_hash) values
+('Fernanda Souza', 'recepcao.fernanda@otoclinica.com', '84991122334', false, '$argon2id$v=19$m=65536,t=3,p=4$hashfake123'),
+('Luciana Melo', 'admin.luciana@otoclinica.com', '84994455667', true, '$argon2id$v=19$m=65536,t=3,p=4$hashfake456');
+
+insert into usuario (nome, email, senha_hash, telefone, cpf, id_endereco) values
+('João Pedro Alves', 'joao.alves@email.com', '$argon2id$v=19$m=65536,t=3,p=4$hashuser123', '84999881122', '12345678901', 1),
+('Maria Fernanda Lima', 'maria.lima@email.com', '$argon2id$v=19$m=65536,t=3,p=4$hashuser456', '84988773344', '98765432100', 2);
+
+insert into medico (nome, id_especialidade, crm, rqe) values
+('Dr. Carlos Eduardo Rocha', (select id from especialidade where nome_especialidade = 'Otorrinolaringologia'), '12345-RN', '6789'),
+('Dra. Ana Luíza Costa', (select id from especialidade where nome_especialidade = 'Otologia'), '54321-RN', '9876');
+
+insert into agenda_medica (id_medico, dia_semana, hora_inicio, hora_fim, duracao_slot_minutos) values
+((select id from medico where crm = '12345-RN'), 1, '08:00:00', '12:00:00', 30), -- Segunda-feira
+((select id from medico where crm = '12345-RN'), 3, '14:00:00', '18:00:00', 30), -- Quarta-feira
+((select id from medico where crm = '54321-RN'), 2, '07:30:00', '11:30:00', 30); -- Terça-feira
+
+insert into consultas (id_recepcionista, id_usuario, id_medico, id_convenio, id_servico, data_hora, status) values
+(
+    (select id from recepcionista where email = 'recepcao.fernanda@otoclinica.com'),
+    (select id from usuario where email = 'joao.alves@email.com'),
+    (select id from medico where crm = '12345-RN'),
+    1, -- Unimed
+    1, -- Consulta Otorrino Geral
+    '2026-08-20 09:00:00-03',
+    'agendada'
+),
+(
+    null, -- Agendamento online feito direto pelo paciente (sem recepcionista)
+    (select id from usuario where email = 'maria.lima@email.com'),
+    (select id from medico where crm = '54321-RN'),
+    null, -- Particular
+    3, -- Videonasofaringolaringoscopia
+    '2026-08-21 10:30:00-03',
+    'agendada'
+);
 --------------------------------------------------------
 --begin;
 --rollback;
