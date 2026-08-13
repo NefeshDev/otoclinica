@@ -59,101 +59,96 @@
 .servicos-container {
     width: 100%;
     min-height: calc(100vh - 70px);
-    /* Busca a imagem saindo da pasta estilos e entrando na pasta imagens */
     background: url('../imagens/fundo-outono.jpg') no-repeat center center/cover;
     display: flex;
+    flex-direction: column; /* MUDANÇA TÉCNICA: Empilha o título e a grade verticalmente */
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
 }
 
-/* Estrutura do Grid */
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    width: 100%;
-    max-width: 950px;
+/* ESTILIZAÇÃO DO TÍTULO */
+.titulo {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 25px; /* Cria o espaço de respiro entre o título e os botões */
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Aplica sombra para destacar o texto sobre o fundo de outono */
+    letter-spacing: -0.5px;
 }
 
-/* Estilo base dos blocos/cards de serviços */
-.card-servico {
+/* Grade dos botões */
+.servicos-grid {
     display: flex;
-    flex-direction: column; /* Empilha o ícone acima do texto */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Cards menores e refinados */
+.card-servico {
+    width: calc(50% - 10px);
+    min-height: 140px;
+    display: flex;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    gap: 12px; /* Espaçamento entre o ícone e o texto */
-    padding: 35px 20px;
+    gap: 10px;
+    padding: 20px 15px;
     text-decoration: none;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    border-radius: 6px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.25s ease, background-color 0.25s ease;
-    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Estilo dos ícones SVG */
 .card-icon {
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     stroke: #ffffff;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-    transition: transform 0.25s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
 }
 
-/* Efeitos de Hover (Ao passar o mouse) */
 .card-servico:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .card-servico:hover .card-icon {
-    transform: scale(1.1); /* Dá um leve zoom no ícone no hover */
+    transform: scale(1.1) translateY(-3px);
 }
 
-/* Cores e transparências personalizadas */
-.card-cirurgias {
-    background-color: rgba(160, 95, 45, 0.65);
-}
-
-.card-ouvido {
-    background-color: rgba(220, 20, 20, 0.85);
-}
-
-.card-garganta {
-    background-color: rgba(100, 100, 100, 0.65);
-}
-
-.card-nariz {
-    background-color: rgba(140, 80, 40, 0.55);
-}
-
-/* Bloco Particulares centralizado embaixo */
-.card-particulares {
-    grid-column: span 2;
-    max-width: 50%;
-    margin: 0 auto;
-    background-color: rgba(70, 70, 70, 0.75);
-}
+/* Cores de fundo dos cards */
+.card-cirurgias { background-color: rgba(160, 95, 45, 0.65); }
+.card-ouvido    { background-color: rgba(220, 20, 20, 0.85); }
+.card-garganta  { background-color: rgba(100, 100, 100, 0.65); }
+.card-nariz     { background-color: rgba(140, 80, 40, 0.55); }
+.card-particulares { background-color: rgba(70, 70, 70, 0.75); }
 
 /* Responsividade para celulares */
 @media (max-width: 768px) {
-    .servicos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .card-particulares {
-        max-width: 100%;
-    }
-    
-    .card-servico {
-        font-size: 1.6rem;
-        padding: 25px 15px;
+    .titulo {
+        font-size: 2rem;
+        margin-bottom: 20px;
     }
 
+    .card-servico {
+        width: 100%;
+        min-height: 120px;
+        font-size: 1.3rem;
+    }
+    
     .card-icon {
-        width: 36px;
-        height: 36px;
+        width: 28px;
+        height: 28px;
     }
 }
