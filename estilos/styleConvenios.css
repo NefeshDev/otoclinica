@@ -51,3 +51,90 @@
 .nav-links a:hover {
     color: #b30000;
 }
+
+/* --- PÁGINA DE CONVÊNIOS --- */
+
+.convenios-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Cabeçalho da Seção */
+.cabecalho-convenios {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cabecalho-convenios .titulo {
+    font-size: 2.5rem;
+    color: #b30000;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cabecalho-convenios .subtitulo {
+    font-size: 1.1rem;
+    color: #666666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 
+   O MOTOR DO GRID: 
+   Auto-fit ajusta a quantidade de colunas baseado na largura da tela,
+   eliminando a necessidade de dezenas de Media Queries.
+*/
+.convenios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+/* O "Card" que envolve cada logo */
+.convenio-card {
+    background-color: #ffffff;
+    height: 120px; /* Altura fixa para manter a simetria perfeita da grade */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+/* A estilização da imagem da logo */
+.convenio-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garante que a logo não distorça as proporções originais */
+    
+    /* Efeito corporativo: deixa as logos cinzas e levemente opacas em estado de repouso */
+    filter: grayscale(100%) opacity(70%);
+    transition: all 0.4s ease;
+}
+
+/* Interação ao passar o mouse */
+.convenio-card:hover {
+    transform: translateY(-5px); /* Eleva o card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Aumenta a sombra */
+    border-color: #cce0ff;
+}
+
+.convenio-card:hover img {
+    /* Revela as cores originais da marca */
+    filter: grayscale(0%) opacity(100%);
+    transform: scale(1.05); /* Leve zoom in */
+}
+
+/* Ajuste fino para celulares muito estreitos */
+@media (max-width: 480px) {
+    .convenios-grid {
+        /* Em telas minúsculas, reduzimos o minmax para caber pelo menos duas logos por linha */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
