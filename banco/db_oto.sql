@@ -150,3 +150,24 @@ insert into consultas (id_recepcionista, id_usuario, id_medico, id_convenio, id_
 --begin;
 --rollback;
 --commit;
+
+insert into convenio (nome, status) values
+    ('Unimed', 'ativo'),
+    ('Camed Saúde', 'ativo'),
+    ('Força Aérea Brasileira', 'ativo'),
+    ('Capesaúde', 'ativo'),
+    ('Bradesco Saúde', 'ativo'),
+    ('CASSI', 'ativo'),
+    ('Saúde Caixa', 'ativo'),
+    ('AMBEP', 'ativo'),
+    ('CAURN', 'ativo'),
+    ('SulAmérica', 'ativo'),
+    ('GEAP', 'ativo'),
+    ('BR Petrobras', 'ativo'),
+    ('Fundação Assefaz', 'ativo'),
+    ('Amil', 'ativo'),
+    ('Marinha do Brasil', 'ativo'),
+    ('Cartão Vai Bem', 'ativo'),
+    ('tem.', 'ativo'),
+    ('FUSEX', 'ativo'),
+    ('Plan-Assiste', 'ativo');
