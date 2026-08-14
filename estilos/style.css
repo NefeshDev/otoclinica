@@ -21,8 +21,9 @@ html {
     width: 100%;
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar {
@@ -155,7 +156,7 @@ html {
 .servicos-container {
     width: 100%;
     min-height: calc(100vh - 70px);
-    background: #f8f9fa;
+    background: #b30000;
     display: flex;
     flex-direction: column; /* MUDANÇA TÉCNICA: Empilha o título e a grade verticalmente */
     justify-content: center;
@@ -171,7 +172,7 @@ html {
 .titulo {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #b30000;
+    color: #ffffff;
     margin-bottom: 15px;
     text-shadow: 0 1px 10px #16141433;
     letter-spacing: 1px;
@@ -179,7 +180,7 @@ html {
 
 .subtitulo {
     font-size: 1.3rem;
-    color: #2e2e2e;
+    color: #ffffff;
     max-width: 650px;
     margin: 0 auto;
     text-align: center;
@@ -208,39 +209,44 @@ html {
     gap: 10px;
     padding: 20px 15px;
     text-decoration: none;
-    color: #ffffff;
     font-size: 1.4rem;
     font-weight: 700;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(6px);
+    
+    /* A INVERSÃO DE CONTRASTE */
+    background-color: #ffffff; /* Fundo branco puro */
+    color: #1a1a1a; /* Texto em "Falso Preto" (cinza chumbo bem escuro) */
+    
+    border: none; /* Sem bordas, o contraste sólido já delimita o objeto */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra difusa e leve */
+    
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* ÍCONES EM PRETO */
 .card-icon {
     width: 32px;
     height: 32px;
-    stroke: #ffffff;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    
+    /* MUDANÇA VETORIAL: Inverte a cor das linhas do SVG para combinar com o texto */
+    stroke: #1a1a1a; 
+    
+    /* Removemos o filter: drop-shadow daqui porque sombras em ícones escuros 
+    sobre fundo claro deixam o design com aspecto sujo/borrado. */
+    
     transition: transform 0.3s ease;
 }
 
+/* INTERAÇÃO (HOVER) */
 .card-servico:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    /* Quando levanta, a sombra aumenta e espalha mais */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25); 
 }
 
 .card-servico:hover .card-icon {
     transform: scale(1.1) translateY(-3px);
 }
-
-/* Cores de fundo dos cards */
-.card-cirurgias { background-color: rgba(160, 95, 45, 0.65); }
-.card-ouvido    { background-color: rgba(220, 20, 20, 0.85); }
-.card-garganta  { background-color: rgba(100, 100, 100, 0.65); }
-.card-nariz     { background-color: rgba(140, 80, 40, 0.55); }
-.card-particulares { background-color: rgba(70, 70, 70, 0.75); }
 
 /* Responsividade para celulares */
 @media (max-width: 768px) {
@@ -370,8 +376,8 @@ html {
     position: relative; 
     
     /* A MÁSCARA ENTRA AQUI: 
-       Permite vazar 500px para cima (salvando as cabeças), 
-       mas corta tudo que cruzar o limite zero da base, direita e esquerda. */
+    Permite vazar 500px para cima (salvando as cabeças), 
+    mas corta tudo que cruzar o limite zero da base, direita e esquerda. */
     clip-path: inset(-500px 0 0 0);
 }
 
@@ -409,7 +415,7 @@ html {
     transform-origin: bottom center; /* A âncora do zoom */
     
     /* Como essa regra é mais "forte", ela substitui o -20px de cima 
-       apenas para ela, puxando o espaço vazio do PNG para baixo da guilhotina */
+    apenas para ela, puxando o espaço vazio do PNG para baixo da guilhotina */
     margin-bottom: -280px; 
 }
 
@@ -454,4 +460,251 @@ html {
     .titulo-equipe {
         font-size: 2.8rem;
     }
+}
+
+/* --- SESSÃO DE DEPOIMENTOS --- */
+
+.depoimentos-container {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Fundo branco para dar respiro após a seção cinza dos médicos */
+    text-align: center;
+}
+
+.cabecalho-depoimentos {
+    margin-bottom: 60px;
+}
+
+.titulo-depoimentos {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #b30000;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+/* A linha decorativa abaixo do título */
+.titulo-depoimentos::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #b30000;
+    border-radius: 2px;
+}
+
+/* O MOTOR DO LAYOUT: Grid para criar 3 colunas exatas */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* A ESTRUTURA DO CARD */
+.depoimento-card {
+    background-color: #f8f9fa;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima das aspas gigantes */
+    
+    /* A MÁGICA DO ALINHAMENTO INTERNO: 
+    Isso transforma o card numa coluna elástica. */
+    display: flex;
+    flex-direction: column; 
+    height: 100%; /* Força todos os cards a terem a exata mesma altura */
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* AS ASPAS GIGANTES DECORATIVAS (Renderizadas pela GPU do navegador) */
+.depoimento-card::before {
+    content: "“";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 120px;
+    font-family: Georgia, serif;
+    color: rgba(179, 0, 0, 0.05); /* Vermelho com apenas 5% de opacidade (marca d'água) */
+    z-index: -1; /* Joga a marca d'água para o fundo do card */
+    line-height: 1;
+}
+
+/* INTERATIVIDADE */
+.depoimento-card:hover {
+    transform: translateY(-10px); /* O card flutua 10px para cima */
+    box-shadow: 0 15px 30px rgba(179, 0, 0, 0.1); /* Sombra ganha um tom levemente avermelhado */
+    border-color: rgba(179, 0, 0, 0.2); /* Borda acende levemente */
+}
+
+.estrelas {
+    color: #f59e0b; /* Amarelo dourado técnico */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.depoimento-texto {
+    font-size: 1.15rem;
+    color: #4a5568;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.depoimento-autor {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    
+    /* O SEGREDO DO FLEXBOX: 
+    Como o card é display: flex e column, esse margin-top: auto 
+    empurra o nome do autor para a base absoluta do card, 
+    não importa quantas linhas o depoimento de cima tenha! */
+    margin-top: auto; 
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    /* No tablet, cai para 2 colunas */
+    .depoimentos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* No celular, vira uma coluna única e empilhada */
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+    .titulo-depoimentos {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- SESSÃO DE CONTATO (RODAPÉ) --- */
+
+.contato-container {
+    background-color: #111111; /* Fundo super escuro para ancorar o site */
+    color: #e2e8f0; /* Um cinza muito claro, mais confortável para ler no preto do que branco puro */
+    padding: 80px 20px;
+    border-top: 4px solid #b30000; /* Linha de destaque vermelha no topo para conectar com a identidade */
+}
+
+.contato-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    /* A MÁGICA DO CSS GRID: Cria colunas de no mínimo 250px. 
+    Se a tela diminuir, ele empilha tudo sozinho sem precisar de @media queries! */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+}
+
+.contato-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço uniforme entre as linhas de texto */
+}
+
+.contato-titulo {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Sublinhado curto abaixo dos títulos */
+.contato-titulo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #b30000;
+}
+
+.contato-texto {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #a0aec0;
+}
+
+.texto-bold {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Links (Email e Telefones) */
+.contato-link {
+    text-decoration: none;
+    color: #a0aec0;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.contato-link:hover {
+    color: #b30000; /* Fica vermelho ao passar o mouse */
+    transform: translateX(5px); /* Dá um pequeno salto para a direita demonstrando interatividade */
+}
+
+.destaque-link {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Classe especial para indicar que é whatsapp visualmente */
+
+.contato-telefones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+/* --- ÍCONES DE REDES SOCIAIS --- */
+.redes-sociais-grupo {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo de vidro escuro */
+    border-radius: 8px; /* Quadrados com borda arredondada */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+}
+
+.social-btn svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.social-btn i {
+    font-size: 1.4rem; /* Substitui o antigo width/height de 22px por proporção tipográfica */
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover i {
+    transform: scale(1.15); /* Aumenta a escala do ícone junto com o pulo do botão */
 }
