@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .logo{
     justify-self: start;
     max-width: 150px;
@@ -143,5 +147,311 @@
 @media (max-width: 1240px) {
     .hero-texto {
         padding-left: 20px;
+    }
+}
+
+/* --- SESSÃO DE SERVIÇOS --- */
+
+.servicos-container {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column; /* MUDANÇA TÉCNICA: Empilha o título e a grade verticalmente */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.cabecalho-servico {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b30000;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 10px #16141433;
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    font-size: 1.3rem;
+    color: #2e2e2e;
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+
+.servicos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Cards menores e refinados */
+.card-servico {
+    width: calc(50% - 10px);
+    min-height: 140px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-icon {
+    width: 32px;
+    height: 32px;
+    stroke: #ffffff;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.card-servico:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.card-servico:hover .card-icon {
+    transform: scale(1.1) translateY(-3px);
+}
+
+/* Cores de fundo dos cards */
+.card-cirurgias { background-color: rgba(160, 95, 45, 0.65); }
+.card-ouvido    { background-color: rgba(220, 20, 20, 0.85); }
+.card-garganta  { background-color: rgba(100, 100, 100, 0.65); }
+.card-nariz     { background-color: rgba(140, 80, 40, 0.55); }
+.card-particulares { background-color: rgba(70, 70, 70, 0.75); }
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .card-servico {
+        width: 100%;
+        min-height: 120px;
+        font-size: 1.3rem;
+    }
+    
+    .card-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* --- SEÇÃO DE ESTATÍSTICAS --- */
+
+.stats-container {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 60px 20px;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #b30000;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsividade para Tablets */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/*SESSÃO DE Otorrinos*/
+.equipe-container {
+    background-color: #f6f4f0;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cabecalho-equipe {
+    margin-bottom: 70px;
+}
+
+.titulo-equipe {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #e60000;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.titulo-equipe::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background-color: #e60000;
+}
+
+.equipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.medico-card {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 1. O CONTÊINER (A Moldura da Janela com a Máscara) */
+.medico-foto {
+    width: 220px;
+    height: 240px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative; 
+    
+    /* A MÁSCARA ENTRA AQUI: 
+       Permite vazar 500px para cima (salvando as cabeças), 
+       mas corta tudo que cruzar o limite zero da base, direita e esquerda. */
+    clip-path: inset(-500px 0 0 0);
+}
+
+/* 2. A LINHA FÍSICA */
+.medico-foto::after {
+    content: ""; 
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 6px; 
+    z-index: 5; 
+}
+
+/* 3. A IMAGEM GERAL (A Paisagem) */
+.medico-foto img {
+    transform: scale(1.5); /* Aumenta em 30% como uma lupa */
+    transform-origin: bottom center;
+    display: block;
+    max-width: 500%; /* Voltei para um limite saudável */
+    max-height: 120%;
+    object-fit: contain;
+    object-position: bottom;
+    
+    /* Um puxão leve para todos os médicos cruzarem a linha de base e serem cortados */
+    margin-bottom: -120px; 
+    
+    position: relative; 
+    z-index: 1; 
+}
+
+/* 4. O AJUSTE ISOLADO (Com força máxima de especificidade) */
+.medico-foto img.ajuste-larissa {
+    transform: scale(2.5); /* Aumenta em 30% como uma lupa */
+    transform-origin: bottom center; /* A âncora do zoom */
+    
+    /* Como essa regra é mais "forte", ela substitui o -20px de cima 
+       apenas para ela, puxando o espaço vazio do PNG para baixo da guilhotina */
+    margin-bottom: -280px; 
+}
+
+/* 4. AS CORES PINTANDO A NOSSA NOVA LINHA */
+.linha-marrom::after {
+    background-color: #9e7339;
+}
+
+.linha-marrom-escuro::after {
+    background-color: #6d4c41;
+}
+
+.linha-vermelha::after {
+    background-color: #e53935;
+}
+
+.medico-nome {
+    font-size: 1.5rem;
+    color: #333333;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.medico-crm {
+    font-size: 1rem;
+    color: #888888;
+}
+
+.medico-tag {
+    font-size: 0.85rem;
+    color: #999999;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .equipe-grid {
+        gap: 40px 20px;
+    }
+    
+    .titulo-equipe {
+        font-size: 2.8rem;
     }
 }
