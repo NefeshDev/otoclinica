@@ -1,0 +1,96 @@
+/* --- LAYOUT DA SEÇÃO DE ALTERAR NOME --- */
+.alterar-nome {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.alterar-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- A CAIXA DO FORMULÁRIO --- */
+.alterar-box {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #edf2f7;
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+.alterar-box h1 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* --- SUBTÍTULO --- */
+.alterar-subtitulo {
+    text-align: center;
+    color: #4a5568;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* --- BOTÃO DE AÇÃO PRINCIPAL --- */
+.alterar-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #b30000;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 20px;
+}
+
+.alterar-btn:hover {
+    background-color: #3d0909;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(179, 0, 0, 0.2);
+}
+
+.alterar-btn:active {
+    transform: translateY(0);
+}
+
+/* --- RODAPÉ --- */
+.alterar-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.alterar-footer a {
+    color: #b30000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.alterar-footer a:hover {
+    color: #3d0909;
+    text-decoration: underline;
+}
+
+/* --- COMPORTAMENTO RESPONSIVO --- */
+@media (max-width: 768px) {
+    .alterar-box {
+        padding: 40px 25px;
+    }
+
+    .alterar-box h1 {
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otoclinica - Alterar Nome</title>
+    <link rel="stylesheet" href="estilos/styleRecover.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="container-navbar">
+        <nav class="navbar">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo.png" alt="Otoclinica Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="convenios.html">Convênios</a></li>
+                <li><a href="index.html#servico">Serviços</a></li>
+                <li><a href="index.html#otorrinos">Otorrinos</a></li>
+                <li><a href="particulares.html">Particulares</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="login.html" class="nav-btn nav-btn-login">Login</a></li>
+                <li><a href="cadastro.html" class="nav-btn nav-btn-cadastro">Cadastrar-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="alterar-nome">
+        <div class="alterar-container">
+            <div class="alterar-box">
+                <h1>Alterar Nome</h1>
+                <p class="alterar-subtitulo">Atualize seu nome de perfil</p>
+
+                <form class="alterar-form">
+
+                    <!-- NOVO NOME -->
+                    <div class="form-group">
+                        <label for="novo-nome">Novo Nome</label>
+                        <input type="text" id="novo-nome" name="novo_nome" placeholder="Seu novo nome" required>
+                    </div>
+
+                    <!-- CONFIRMAR NOVO NOME -->
+                    <div class="form-group">
+                        <label for="confirmar-nome">Confirmar Novo Nome</label>
+                        <input type="text" id="confirmar-nome" name="confirmar_nome" placeholder="Confirme seu novo nome" required>
+                    </div>
+
+                    <button type="submit" class="alterar-btn">Atualizar Nome</button>
+                </form>
+
+                <div class="alterar-footer">
+                    <p>Voltar ao perfil? <a href="perfil.html">Ir para Perfil</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
