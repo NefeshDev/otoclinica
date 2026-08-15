@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+*{
+    font-family: "Rethink Sans", sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    padding-top: 40px;
+}
+
+.logo {
+    max-width: 180px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.container-navbar {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    width: 100%;
+}
+
+.navbar .nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.3rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #b30000;
+}
+
+/* --- BOTÕES NA NAVBAR --- */
+.nav-btn {
+    padding: 10px 24px !important;
+    border-radius: 30px !important;
+    font-weight: 600;
+    font-size: 1rem !important;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-btn-login {
+    color: #b30000 !important;
+    border: 2px solid #b3000034;
+    background-color: transparent;
+}
+
+.nav-btn-login:hover {
+    background-color: #3d0909;
+    border: 2px solid #f5f5f5;
+    color: #ffffff !important;
+}
+
+.nav-btn-cadastro {
+    color: #ffffff !important;
+    background-color: #b30000;
+    border: 2px solid #b30000;
+}
+
+.nav-btn-cadastro:hover {
+    background-color: #3d0909;
+    border-color: #3d0909;
+}
+
+/* --- LAYOUT DA SEÇÃO DE AGENDAMENTO --- */
+.agendar-consulta {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.agendar-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- A CAIXA DO FORMULÁRIO --- */
+.agendar-box {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #edf2f7;
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+.agendar-box h1 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* --- SUBTÍTULO --- */
+.agendar-subtitulo {
+    text-align: center;
+    color: #4a5568;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* --- ESTRUTURA DOS INPUTS --- */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    color: #4a5568;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: #1a1a1a;
+    background-color: #f8f9fa;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    font-family: "Rethink Sans", sans-serif;
+    padding-right: 45px;
+}
+
+/* Estado de Interação: Focus */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background-color: #ffffff;
+    border-color: #b30000;
+    box-shadow: 0 0 0 3px rgba(179, 0, 0, 0.15);
+}
+
+/* Estado: Placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0aec0;
+}
+
+/* --- SELECT CUSTOMIZADO --- */
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- TEXTAREA --- */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    padding-right: 16px;
+}
+
+/* --- CHECKMARK ICON --- */
+.checkmark-icon {
+    position: absolute;
+    right: 10px;
+    top: 44px;
+    color: #10b981;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: popIn 0.3s ease;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+}
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* --- RESUMO DO VALOR --- */
+.resumo-valor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.resumo-label {
+    font-size: 1rem;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.resumo-preco {
+    font-size: 1.3rem;
+    color: #b30000;
+    font-weight: 700;
+}
+
+/* --- BOTÃO DE AÇÃO PRINCIPAL --- */
+.agendar-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #b30000;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agendar-btn:hover {
+    background-color: #3d0909;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(179, 0, 0, 0.2);
+}
+
+.agendar-btn:active {
+    transform: translateY(0);
+}
+
+/* --- RODAPÉ --- */
+.agendar-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.agendar-footer a {
+    color: #b30000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.agendar-footer a:hover {
+    color: #3d0909;
+    text-decoration: underline;
+}
+
+/* --- COMPORTAMENTO RESPONSIVO --- */
+@media (max-width: 768px) {
+    .agendar-box {
+        padding: 40px 25px;
+    }
+
+    .agendar-box h1 {
+        font-size: 1.7rem;
+    }
+
+    .resumo-valor {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .checkmark-icon {
+        right: 8px;
+        top: 43px;
+    }
+}

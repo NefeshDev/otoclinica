@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otoclinica - Agendar Consulta</title>
+    <link rel="stylesheet" href="estilos/styleAgendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="container-navbar">
+        <nav class="navbar">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo.png" alt="Otoclinica Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="convenios.html">Convênios</a></li>
+                <li><a href="index.html#servico">Serviços</a></li>
+                <li><a href="index.html#otorrinos">Otorrinos</a></li>
+                <li><a href="particulares.html">Particulares</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="login.html" class="nav-btn nav-btn-login">Login</a></li>
+                <li><a href="cadastro.html" class="nav-btn nav-btn-cadastro">Cadastrar-se</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="agendar-consulta">
+    <div class="agendar-container">
+        <div class="agendar-box">
+            <h1>Agendar Consulta</h1>
+            <p class="agendar-subtitulo">Escolha o serviço, médico, data e convênio</p>
+
+            <form class="agendar-form">
+                <!-- SERVIÇO -->
+                <div class="form-group">
+                    <label for="servico">Qual Serviço?</label>
+                    <select id="servico" name="servico" required onchange="atualizarValor()">
+                        <option value="">Selecione um serviço</option>
+                        <option value="1" data-preco="250.00">Consulta Otorrino Geral</option>
+                        <option value="2" data-preco="120.00">Lavagem Auricular</option>
+                        <option value="3" data-preco="380.00">Videonasofaringolaringoscopia</option>
+                    </select>
+                </div>
+
+                <!-- MÉDICO -->
+                <div class="form-group">
+                    <label for="medico">Escolha o Médico</label>
+                    <select id="medico" name="medico" required>
+                        <option value="">Selecione um médico</option>
+                        <option value="1">Dr. Lauro Roberto</option>
+                        <option value="2">Dr. Lauro Otacílio</option>
+                        <option value="3">Dr. Raimundo Vinicius</option>
+                        <option value="4">Dra. Larissa Roberta</option>
+                        <option value="5">Dra. Mônica Ramos</option>
+                    </select>
+                </div>
+
+                <!-- DATA -->
+                <div class="form-group">
+                    <label for="data">Data da Consulta</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <!-- HORÁRIO -->
+                <div class="form-group">
+                    <label for="horario">Horário Preferido</label>
+                    <select id="horario" name="horario" required>
+                        <option value="">Selecione um horário</option>
+                        <option value="07:00">07:00</option>
+                        <option value="07:30">07:30</option>
+                        <option value="08:00">08:00</option>
+                        <option value="08:30">08:30</option>
+                        <option value="09:00">09:00</option>
+                        <option value="09:30">09:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:30">17:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                    </select>
+                </div>
+
+                <!-- CONVÊNIO -->
+                <div class="form-group">
+                    <label for="convenio">Convênio / Forma de Pagamento</label>
+                    <select id="convenio" name="convenio" required>
+                        <option value="">Selecione um convênio</option>
+                        <option value="particular">Particular</option>
+                        <option value="unimed">Unimed</option>
+                        <option value="camed">Camed Saúde</option>
+                        <option value="fab">Força Aérea Brasileira</option>
+                        <option value="capesaude">Capesaúde</option>
+                        <option value="bradesco">Bradesco Saúde</option>
+                        <option value="cassi">CASSI</option>
+                        <option value="caixa">Saúde Caixa</option>
+                        <option value="ambep">AMBEP</option>
+                        <option value="caurn">CAORN</option>
+                        <option value="sulamerica">SulAmérica</option>
+                        <option value="geap">GEAP</option>
+                        <option value="petrobras">BR Petrobras</option>
+                        <option value="assefaz">Fundação Assefaz</option>
+                        <option value="amil">Amil</option>
+                        <option value="marinha">Marinha do Brasil</option>
+                        <option value="vaibem">Cartão Vai Bem</option>
+                        <option value="tem">tem.</option>
+                        <option value="fusex">FUSEX</option>
+                        <option value="planassiste">Plan-Assiste</option>
+                    </select>
+                </div>
+
+                <!-- OBSERVAÇÕES -->
+                <div class="form-group">
+                    <label for="observacoes">Observações (Opcional)</label>
+                    <textarea id="observacoes" name="observacoes" placeholder="Deixe aqui alguma observação importante..."></textarea>
+                </div>
+
+                <!-- RESUMO DO VALOR -->
+                <div class="resumo-valor">
+                    <span class="resumo-label">Valor da Consulta:</span>
+                    <span class="resumo-preco" id="precoConsulta">R$ 0,00</span>
+                </div>
+
+                <button type="submit" class="agendar-btn">Confirmar Agendamento</button>
+            </form>
+
+            <div class="agendar-footer">
+                <p>Dúvidas? <a href="contato.html">Entre em contato conosco</a></p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <script src="atualizarValor.js"></script>
+    <script src="confirmationGreen.js"></script>
+</body>
+</html>
